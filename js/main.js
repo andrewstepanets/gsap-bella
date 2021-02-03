@@ -47,13 +47,28 @@ function initNavigation() {
         },
         onEnter: ({ direction }) => navAnimation(direction),
         onLeaveBack: ({ direction }) => navAnimation(direction),
-        markers: true
     })
+}
+
+// Move images in Header 
+
+function moveImages(e) {
+    const { offsetX, offsetY, target } = e;
+    const { clientWidth, clientHeight } = target;
+
+    console.log(offsetX, offsetY, clientWidth, clientHeight);
+}
+
+function initHeaderTilt() {
+    const header = document.querySelector('header');
+    header.addEventListener('mousemove', moveImages)
 }
 
 function init() {
 
-    initNavigation()
+    initNavigation();
+
+    initHeaderTilt();
 
 }
 
