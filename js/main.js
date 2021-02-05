@@ -104,11 +104,58 @@ function initHeaderTilt() {
     header.addEventListener('mousemove', moveImages)
 }
 
+
+// Reveal Gallery Block 
+
+
+function initHoverReveal() {
+    const sections = document.querySelectorAll('.rg__column');
+    sections.forEach(section => {
+
+        // get components for animation
+        section.imageBlock = section.querySelector('.rg__image')
+        section.mask = section.querySelector('.rg__image--mask')
+
+        // reset the initial position
+        gsap.set(section.imageBlock, { yPercent: -101 })
+        gsap.set(section.mask, { yPercent: 100 })
+
+        // add event Listeners for each section 
+
+        section.addEventListener('mouseenter', createHoverReveal)
+        section.addEventListener('mouseleave', createHoverReveal)
+
+    })
+}
+
+function createHoverReveal(e) {
+
+    const { imageBlock, mask } = e.target;
+
+    // setup timeline
+    let tl = gsap.timeline({
+        defaults: {
+            duration: 0.7,
+            ease: 'Power4.out'
+        }
+    })
+    if (e.type === 'mouseenter') {
+        tl.to([mask, imageBlock], { yPercent: 0 })
+    } else if (e.type === 'mouseleave') {
+        tl.to(mask, { yPercent: 100 })
+            .to(imageBlock, { yPercent: -101 }, 0)
+    }
+
+    return tl;
+}
+
 function init() {
 
     initNavigation();
 
     initHeaderTilt();
+
+    initHoverReveal();
 
 }
 
