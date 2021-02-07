@@ -171,10 +171,33 @@ function init() {
 
     initHeaderTilt();
 
-    initHoverReveal();
+    // initHoverReveal();
 
 }
 
 window.addEventListener('load', function () {
     init();
 });
+
+// define a brakpoint
+
+const mq = window.matchMedia('(min-width: 768px)');
+
+// add change listener to this breakpoint
+
+mq.addEventListener('change', handleWithChange)
+
+// first page load
+
+handleWithChange(mq);
+// media query change
+function handleWithChange(mq) {
+    // check if we are on the right breakpoint
+    if (mq.matches) {
+        // setup hover animation
+        initHoverReveal();
+    } else {
+        // width is less than 768px
+        console.log('We are using a mobile');
+    }
+}

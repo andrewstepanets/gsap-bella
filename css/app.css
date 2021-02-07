@@ -302,7 +302,7 @@ header h1 span {
 /* =Reveal Gallery */
 .reveal-gallery {
   width: 100%;
-  height: 100vh;
+  flex-direction: column;
   overflow: hidden;
   display: flex;
   justify-content: center;
@@ -318,6 +318,7 @@ header h1 span {
   justify-content: center;
   position: relative;
   overflow: hidden;
+  min-height: 50vh;
 }
 .rg__text--heading h3 {
   font-size: 3.6vw;
@@ -387,6 +388,13 @@ header h1 span {
 }
 .rg__text--mask {
   overflow: hidden;
+}
+.fill-background {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
 }
 
 /* =Loader */
@@ -696,6 +704,21 @@ section {
 }
 
 @media only screen and (min-width: 768px) {
+  /* =Reveal Gallery */
+  .reveal-gallery {
+    flex-direction: row;
+    height: 100vh;
+  }
+  .rg__column {
+    min-height: auto;
+  }
+  .rg__text--copy {
+    position: absolute;
+    overflow: hidden;
+  }
+  .rg__text {
+    max-width: 17vw;
+  }
 }
 
 @media only screen and (min-width: 1140px) {
