@@ -107,9 +107,9 @@ function initHeaderTilt() {
 
 // Reveal Gallery Block 
 
+const sections = document.querySelectorAll('.rg__column');
 
 function initHoverReveal() {
-    const sections = document.querySelectorAll('.rg__column');
     sections.forEach(section => {
 
         // get components for animation
@@ -190,6 +190,22 @@ mq.addEventListener('change', handleWithChange)
 // first page load
 
 handleWithChange(mq);
+
+// reset all properties 
+
+function resetProps(elements) {
+
+    // this func stops all tweens 
+
+    gsap.killTweensOf('*');
+
+    if (elements.length) {
+        elements.forEach(element => {
+            element && gsap.set(element, { clearProps: 'all' });
+        })
+    }
+}
+
 // media query change
 function handleWithChange(mq) {
     // check if we are on the right breakpoint
@@ -199,5 +215,14 @@ function handleWithChange(mq) {
     } else {
         // width is less than 768px
         console.log('We are using a mobile');
+        // remove event listener  for each sections 
+
+        sections.forEach(section => {
+            section.removeEventListener('mouseenter', createHoverReveal);
+            section.removeEventListener('mouseleave', createHoverReveal);
+
+            const { imageBlock, mask, text, textCopy, textMask, textP, image } = section;
+            resetProps([imageBlock, mask, text, textCopy, textMask, textP, image]);
+        })
     }
 }

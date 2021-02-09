@@ -335,7 +335,6 @@ header h1 span {
   font-weight: normal;
 }
 .rg__text {
-  max-width: 17vw;
   z-index: 1;
   position: relative;
 }
@@ -717,7 +716,7 @@ section {
     overflow: hidden;
   }
   .rg__text {
-    max-width: 17vw;
+    /* max-width: 17vw; */
   }
 }
 
