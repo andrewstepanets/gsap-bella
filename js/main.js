@@ -105,7 +105,7 @@ function initHeaderTilt() {
 }
 
 
-// Reveal Gallery Block 
+// Reveal Gallery Block  start
 
 const sections = document.querySelectorAll('.rg__column');
 
@@ -165,19 +165,6 @@ function createHoverReveal(e) {
     return tl;
 }
 
-function init() {
-
-    initNavigation();
-
-    initHeaderTilt();
-
-    // initHoverReveal();
-
-}
-
-window.addEventListener('load', function () {
-    init();
-});
 
 // define a brakpoint
 
@@ -226,3 +213,17 @@ function handleWithChange(mq) {
         })
     }
 }
+
+// End block Reveal Gallery 
+
+function init() {
+
+    initNavigation();
+
+    initHeaderTilt();
+
+}
+
+window.addEventListener('load', function () {
+    init();
+});
