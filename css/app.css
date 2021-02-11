@@ -530,11 +530,12 @@ section {
   visibility: hidden;
 }
 .portfolio__image--l {
+  top: 0vh;
   padding-bottom: 41.66vw;
 }
 .portfolio__image--s {
   width: 15vw;
-  top: 25vh;
+  top: 11vh;
   left: 54vw;
   padding-bottom: 20vw;
 }
@@ -547,6 +548,7 @@ section {
   height: 115%;
   background-size: cover;
 }
+
 .fill-background {
   top: 0;
   left: 0;
